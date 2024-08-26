@@ -1,17 +1,19 @@
 import {useState} from 'react';
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {counterSlice} from './counterSlice';
 
 const Counter = () => {
-  const [value, setValue] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>('');
+
   return (
     <View style={styles.parentView}>
-      <Text>{`Current value: ${value}`}</Text>
+      <Text>{`Current value: ${inputValue}`}</Text>
       <View style={styles.childView}>
         <TextInput
           style={styles.textInput}
-          onChangeText={value => setValue(value)}
+          onChangeText={value => setInputValue(value)}
           placeholder="value"
-          value={value}
+          value={inputValue}
           textAlign="center"
           keyboardType="numeric"
         />
