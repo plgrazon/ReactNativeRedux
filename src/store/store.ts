@@ -1,9 +1,8 @@
 import {Action, configureStore, ThunkAction} from '@reduxjs/toolkit';
+import {rootReducer} from '../reducers/rootReducer';
 
 export const store = configureStore({
-  reducer: {
-    counterReducer: () => {},
-  },
+  reducer: rootReducer,
 });
 
 // app store types
