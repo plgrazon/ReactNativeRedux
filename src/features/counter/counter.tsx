@@ -60,7 +60,7 @@ const Counter = () => {
         onPress={() => dispatch(incrementAsync(defaultInputValue))}
       />
       <Button
-        title="async increment"
+        title="async decrement"
         onPress={() => dispatch(decrementAsync(defaultInputValue))}
       />
       <AppModal
