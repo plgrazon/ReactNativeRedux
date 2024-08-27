@@ -43,6 +43,17 @@ export const counterSlice = createSlice({
       .addCase(incrementAsync.rejected, state => {
         state.status = 'failed';
       });
+    builder
+      .addCase(decrementAsync.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(decrementAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.value -= action.payload;
+      })
+      .addCase(decrementAsync.rejected, state => {
+        state.status = 'failed';
+      });
   },
 });
 
@@ -75,7 +86,16 @@ export const decrementIfOdd = (amount: number): AppThunk => {
 // The `createSlice.extraReducers` field can handle these actions
 // and update the state with the results.
 export const incrementAsync = createAsyncThunk(
-  'counter/fetchCount',
+  'counter/fetchIncrementCount',
+  async (amount: number) => {
+    const response = await fetchCount(amount);
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  },
+);
+
+export const decrementAsync = createAsyncThunk(
+  'counter/fetchDecrementCount',
   async (amount: number) => {
     const response = await fetchCount(amount);
     // The value we return becomes the `fulfilled` action payload

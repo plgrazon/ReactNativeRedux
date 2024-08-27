@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
 import {
   decrement,
+  decrementAsync,
   decrementIfOdd,
   increment,
   incrementAsync,
@@ -57,6 +58,10 @@ const Counter = () => {
       <Button
         title="async increment"
         onPress={() => dispatch(incrementAsync(defaultInputValue))}
+      />
+      <Button
+        title="async increment"
+        onPress={() => dispatch(decrementAsync(defaultInputValue))}
       />
       <AppModal
         visible={visible}
