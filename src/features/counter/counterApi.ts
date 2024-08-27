@@ -3,7 +3,7 @@ export const fetchCount = (amount = 1) => {
   const timeOutDuration = [500, 1000, 2000, 4000];
   const timeOut =
     timeOutDuration[Math.floor(Math.random() * timeOutDuration.length)];
-  const rejectionRates = [0, 1, 1];
+  const rejectionRates = [0, 1, 1, 1, 1];
   const rejectionProbabilty =
     rejectionRates[Math.floor(Math.random() * rejectionRates.length)];
 
